@@ -11,7 +11,8 @@ st.set_page_config(
 
 session_id = str(uuid.uuid4())
 
-url = "http://localhost:5678/webhook-test/c9baa6dc-ac80-487f-ae55-718b06264cf8"
+url = "http://74.249.58.8:5678/webhook/c9baa6dc-ac80-487f-ae55-718b06264cf8"
+# url = "http://74.249.58.8:5678/webhook-test/c9baa6dc-ac80-487f-ae55-718b06264cf8"
 if "history" not in st.session_state:
     st.session_state.history = []
 
