@@ -1,3 +1,4 @@
+from enum import verify
 import streamlit as st
 import uuid
 import requests
@@ -11,8 +12,8 @@ st.set_page_config(
 
 session_id = str(uuid.uuid4())
 
-url = "http://74.249.58.8:5678/webhook/c9baa6dc-ac80-487f-ae55-718b06264cf8"
-# url = "http://74.249.58.8:5678/webhook-test/c9baa6dc-ac80-487f-ae55-718b06264cf8"
+url = "https://74.249.58.8:5678/webhook/c9baa6dc-ac80-487f-ae55-718b06264cf8"
+# url = "https://74.249.58.8:5678/webhook-test/c9baa6dc-ac80-487f-ae55-718b06264cf8"
 if "history" not in st.session_state:
     st.session_state.history = []
 
@@ -26,7 +27,7 @@ def send_message():
             "chatInput": user_input,
             "action": "sendMessage"
         }
-        res = requests.post(url, json=body)
+        res = requests.post(url, json=body, verify=False)
 
         if res.content:
             try:
